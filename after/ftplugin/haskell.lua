@@ -1,0 +1,17 @@
+-- local ht = require 'haskell-tools'
+-- local bufnr = vim.api.nvim_get_current_buf()
+-- local base_opts = { noremap = true, silent = true, buffer = bufnr }
+--
+-- vim.keymap.set('n', '<space>cl', vim.lsp.codelens.run, vim.tbl_extend('force', base_opts, { desc = 'Run all code lenses (e.g. eval, add signature)' }))
+--
+-- vim.keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, vim.tbl_extend('force', base_opts, { desc = 'Hoogle search for type signature under cursor' }))
+--
+-- vim.keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, vim.tbl_extend('force', base_opts, { desc = 'Evaluate all code snippets in buffer' }))
+--
+-- vim.keymap.set('n', '<leader>rr', ht.repl.toggle, vim.tbl_extend('force', base_opts, { desc = 'Toggle GHCi repl for current package' }))
+--
+-- vim.keymap.set('n', '<leader>rf', function()
+--   ht.repl.toggle(vim.api.nvim_buf_get_name(0))
+-- end, vim.tbl_extend('force', base_opts, { desc = 'Toggle GHCi repl for current buffer' }))
+--
+-- vim.keymap.set('n', '<leader>rq', ht.repl.quit, vim.tbl_extend('force', base_opts, { desc = 'Quit GHCi repl' }))
