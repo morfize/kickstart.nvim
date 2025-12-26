@@ -7,6 +7,18 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
+        mdx = { 'markdownlint' },
+        haskell = { 'hlint' },
+        typ = { 'tinymist' },
+      }
+      local markdownlint = require 'lint.linters.markdownlint'
+      markdownlint.args = {
+        '--disable',
+        'MD013', -- Line length
+        'MD024', -- Multiple headers with the same content
+        'MD025', -- Multiple top level headers in the same document
+        'MD033', -- Inline HTML
+        -- 'MD041', -- First line in file should be a top level header
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,

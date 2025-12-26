@@ -46,30 +46,19 @@ map('n', '<Leader>V', '<cmd>ToggleTerm size=80 direction=vertical<CR>', { desc =
 map('n', '<M-i>', '<cmd>ToggleTerm direction=float<CR>', { desc = 'Open Terminal floating' })
 map('t', '<M-i>', '<cmd>ToggleTerm direction=float<CR>', { desc = 'Open Terminal floating' })
 
--- CopilotChat.nvim
-map('n', '<Leader>cci', '<cmd>CopilotChat ', { desc = ':CopilotChat', unpack(opts) })
-map('n', '<Leader>cco', '<cmd>CopilotChatOpen<CR>', { desc = ':CopilotChatOpen', unpack(opts) })
-map('n', '<Leader>ccq', '<cmd>CopilotChatClose<CR>', { desc = ':CopilotChatClose', unpack(opts) })
-map('n', '<Leader>cct', '<cmd>CopilotChatToggle<CR>', { desc = ':CopilotChatToggle', unpack(opts) })
-map('n', '<Leader>ccs', '<cmd>CopilotChatStop<CR>', { desc = ':CopilotChatStop', unpack(opts) })
-map('n', '<Leader>ccr', '<cmd>CopilotChatReset<CR>', { desc = ':CopilotChatReset', unpack(opts) })
-map('n', '<leader>ccS', '<cmd>CopilotChatSave ', { desc = 'Save Copilot Chat history', noremap = true, silent = false })
-map('n', '<leader>ccL', '<cmd>CopilotChatLoad ', { desc = 'Load Copilot Chat history', noremap = true, silent = false })
-map('n', '<leader>ccp', '<cmd>CopilotChatPrompts<CR>', { desc = 'Copilot Chat prompt templates', unpack(opts) })
-map('n', '<leader>ccm', '<cmd>CopilotChatModels<CR>', { desc = 'Copilot Chat models', unpack(opts) })
-map('n', '<leader>ccE', '<cmd>CopilotChat', { desc = 'Copilot Chat prompt template', noremap = true, silent = false })
+-- NOTE: macos like keybindings for text editing in insert mode
 
--- macos like keybindings for text editing in insert mode
-map('i', '<C-a>', '<C-o>^', opts)
-map('i', '<C-e>', '<C-o>$', opts)
-map('i', '<C-k>', '<C-o>D', opts)
-map('i', '<C-u>', '<C-o>d0', opts)
-map('i', '<C-f>', '<Right>', opts)
-map('i', '<C-b>', '<Left>', opts)
-map('i', '<C-d>', '<Del>', opts)
-map('i', '<C-h>', '<BS>', opts)
-map('i', '<C-n>', '<Down>', opts)
-map('i', '<C-p>', '<Up>', opts)
+-- map('i', '<C-a>', '<C-o>^', opts)
+-- map('i', '<C-e>', '<C-o>$', opts)
+-- map('i', '<C-k>', '<C-o>D', opts)
+-- map('i', '<C-u>', '<C-o>d0', opts)
+-- map('i', '<C-f>', '<Right>', opts)
+-- map('i', '<C-b>', '<Left>', opts)
+-- map('i', '<C-d>', '<Del>', opts)
+-- map('i', '<C-h>', '<BS>', opts)
+-- map('i', '<C-n>', '<Down>', opts)
+-- map('i', '<C-p>', '<Up>', opts)
+
 -- NOTE: keymaps end
 
 -- NOTE: neovide

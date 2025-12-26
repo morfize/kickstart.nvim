@@ -92,5 +92,20 @@ return {
       },
       server_opts_overrides = {},
     }
+    -- CopilotChat.nvim
+    local map = vim.keymap.set
+    local opts = { noremap = true, silent = true }
+
+    map('n', '<Leader>cci', '<cmd>CopilotChat ', { desc = ':CopilotChat', unpack(opts) })
+    map('n', '<Leader>cco', '<cmd>CopilotChatOpen<CR>', { desc = ':CopilotChatOpen', unpack(opts) })
+    map('n', '<Leader>ccq', '<cmd>CopilotChatClose<CR>', { desc = ':CopilotChatClose', unpack(opts) })
+    map('n', '<Leader>cct', '<cmd>CopilotChatToggle<CR>', { desc = ':CopilotChatToggle', unpack(opts) })
+    map('n', '<Leader>ccs', '<cmd>CopilotChatStop<CR>', { desc = ':CopilotChatStop', unpack(opts) })
+    map('n', '<Leader>ccr', '<cmd>CopilotChatReset<CR>', { desc = ':CopilotChatReset', unpack(opts) })
+    map('n', '<leader>ccS', '<cmd>CopilotChatSave ', { desc = 'Save Copilot Chat history', noremap = true, silent = false })
+    map('n', '<leader>ccL', '<cmd>CopilotChatLoad ', { desc = 'Load Copilot Chat history', noremap = true, silent = false })
+    map('n', '<leader>ccp', '<cmd>CopilotChatPrompts<CR>', { desc = 'Copilot Chat prompt templates', unpack(opts) })
+    map('n', '<leader>ccm', '<cmd>CopilotChatModels<CR>', { desc = 'Copilot Chat models', unpack(opts) })
+    map('n', '<leader>ccE', '<cmd>CopilotChat', { desc = 'Copilot Chat prompt template', noremap = true, silent = false })
   end,
 }

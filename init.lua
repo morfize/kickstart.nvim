@@ -699,6 +699,80 @@ require('lazy').setup({
             },
           },
         },
+        bashls = {
+          -- cmd = {},
+          filetypes = { 'bash', 'zsh', 'sh' },
+          -- capabilities = {},
+          -- settings = {},
+        },
+        yamlls = {},
+        taplo = { -- for TOML
+          cmd = { 'taplo', 'lsp', 'stdio' },
+          filetypes = { 'toml' },
+          capabilities = {},
+          settings = {},
+        },
+        rust_analyzer = {
+          cmd = {},
+          filetypes = {},
+          capabilities = {},
+          settings = {
+            ['rust-analyzer'] = {
+              checkOnSave = {
+                enable = true,
+              },
+              diagnostics = {
+                enable = true,
+                underline = false,
+              },
+              imports = {
+                granularity = {
+                  group = 'module',
+                },
+                prefix = 'self',
+              },
+              cargo = {
+                buildScripts = {
+                  enable = true,
+                },
+              },
+              procMacro = {
+                enable = true,
+              },
+            },
+          },
+        },
+        hls = {
+          cmd = { 'haskell-language-server-wrapper', '--lsp' },
+          filetypes = { 'haskell', 'lhaskell', 'cabal' },
+          capabilities = {},
+          root_dir = function(bufnr, on_dir)
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            local util = require 'neovim.util'
+            on_dir(util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml')(fname))
+          end,
+          settings = {
+            haskell = {
+              cabalFormattingProvider = 'cabalfmt',
+              formattingProvider = 'ormolu',
+            },
+          },
+        },
+        tinymist = {
+          cmd = { 'tinymist' },
+          filetypes = { 'typ' },
+          settings = {
+            formatterMode = 'typStyle',
+            exportPdf = 'onType',
+            semanticTokens = 'disable',
+          },
+        },
+        -- vale_ls = {
+        --   cmd = { 'vale', 'lsp' },
+        --   filetypes = { 'markdown', 'mdx' },
+        --   capabilities = {},
+        --   settings = {},
+        -- },
       }
 
       -- Ensure the servers and tools above are installed
@@ -717,6 +791,10 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'beautysh',
+        'markdownlint',
+        'hlint',
+        'tinymist',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -769,6 +847,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        markdown = { 'markdownlint' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -946,7 +1025,20 @@ require('lazy').setup({
     config = function()
       local ts = require 'nvim-treesitter'
       ts.setup {}
-      ts.install({ 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }):wait(30000)
+      ts.install({
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'd2',
+      }):wait(30000)
     end,
 
     -- There are additional nvim-treesitter modules that you can use to interact
