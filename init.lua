@@ -1037,7 +1037,6 @@ require('lazy').setup({
         'query',
         'vim',
         'vimdoc',
-        'd2',
       }):wait(30000)
     end,
 
