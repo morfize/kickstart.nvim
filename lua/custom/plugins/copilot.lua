@@ -1,6 +1,6 @@
 return {
   'zbirenbaum/copilot.lua',
-  enabled = true,
+  enabled = false,
   event = 'InsertEnter',
   requires = {
     'copilotlsp/copilot-lsp.nvim',
@@ -69,9 +69,7 @@ return {
       copilot_node_command = 'node', -- Node.js version must be > 20
       workspace_folders = {},
       copilot_model = '',
-      root_dir = function()
-        return vim.fs.dirname(vim.fs.find('.git', { upward = true })[1])
-      end,
+      root_dir = function() return vim.fs.dirname(vim.fs.find('.git', { upward = true })[1]) end,
       should_attach = function(_, _)
         local logger = require 'copilot.logger'
         if not vim.bo.buflisted then
