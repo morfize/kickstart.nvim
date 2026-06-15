@@ -710,6 +710,7 @@ require('lazy').setup({
             semanticTokens = 'disable',
           },
         },
+        sqls = {},
         -- vale_ls = {
         --   cmd = { 'vale', 'lsp' },
         --   filetypes = { 'markdown', 'mdx' },
@@ -732,6 +733,7 @@ require('lazy').setup({
         'markdownlint',
         'hlint',
         'tinymist',
+        'sqlfluff',
         'stylua', -- Used to format Lua code
         -- You can add other tools here that you want Mason to install
       })
@@ -770,7 +772,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 2000,
             lsp_format = 'fallback',
           }
         end
@@ -778,6 +780,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         markdown = { 'markdownlint' },
+        sql = { 'sqlfluff' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

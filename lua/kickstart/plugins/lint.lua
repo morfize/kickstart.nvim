@@ -12,6 +12,7 @@ return { -- Linting
       mdx = { 'markdownlint' },
       haskell = { 'hlint' },
       typ = { 'tinymist' },
+      sql = { 'sqlfluff' },
     }
     local markdownlint = require 'lint.linters.markdownlint'
     markdownlint.args = {
