@@ -1,6 +1,6 @@
 return {
   'ravsii/tree-sitter-d2',
-  lazy = 'VeryLazy',
+  event = 'VeryLazy',
   enable = true,
   ft = { 'd2', 'md' },
   version = '*',
