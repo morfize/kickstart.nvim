@@ -13,9 +13,9 @@ return { -- Linting
       haskell = { 'hlint' },
       typ = { 'tinymist' },
       sql = { 'sqlfluff' },
+      python = { 'ruff' },
     }
-    local markdownlint = require 'lint.linters.markdownlint'
-    markdownlint.args = {
+    lint.linters.markdownlint.args = {
       '--disable',
       'MD013', -- Line length
       'MD024', -- Multiple headers with the same content

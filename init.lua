@@ -611,9 +611,7 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-
         stylua = {}, -- Used to format Lua code
-
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
           on_init = function(client)
@@ -654,6 +652,11 @@ require('lazy').setup({
           filetypes = { 'toml' },
           capabilities = {},
           settings = {},
+        },
+        ty = {
+          settings = {
+            ty = {},
+          },
         },
         rust_analyzer = {
           cmd = {},
@@ -710,7 +713,7 @@ require('lazy').setup({
             semanticTokens = 'disable',
           },
         },
-        sqls = {},
+        -- sqls = {},
         -- vale_ls = {
         --   cmd = { 'vale', 'lsp' },
         --   filetypes = { 'markdown', 'mdx' },
@@ -772,7 +775,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 2000,
+            timeout_ms = 3000,
             lsp_format = 'fallback',
           }
         end
@@ -781,11 +784,18 @@ require('lazy').setup({
         lua = { 'stylua' },
         markdown = { 'markdownlint' },
         sql = { 'sqlfluff' },
+        python = { 'ruff' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      formatters = {
+        sqlfluff = {
+          -- args = function(self, ctx) return { 'fix', '--stdin-filename', ctx.filename, '-' } end,
+          exit_codes = { 0, 1 },
+        },
       },
     },
   },
