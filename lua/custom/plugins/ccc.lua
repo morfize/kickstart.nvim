@@ -1,7 +1,4 @@
-return {
-  'uga-rosa/ccc.nvim',
-  event = 'VeryLazy',
-  config = function()
-    require('ccc').setup {}
-  end,
-}
+local pack = require 'custom.pack'
+
+pack.add 'uga-rosa/ccc.nvim'
+require('ccc').setup {}

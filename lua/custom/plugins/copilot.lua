@@ -1,12 +1,14 @@
-return {
+local enabled = false
+if not enabled then return end
+
+local pack = require 'custom.pack'
+
+pack.add_many {
+  'copilotlsp/copilot-lsp.nvim',
   'zbirenbaum/copilot.lua',
-  enabled = false,
-  event = 'InsertEnter',
-  requires = {
-    'copilotlsp/copilot-lsp.nvim',
-  },
-  config = function()
-    require('copilot').setup {
+}
+
+require('copilot').setup {
       panel = {
         enabled = true,
         auto_refresh = true,
@@ -89,6 +91,4 @@ return {
         custom_server_filepath = nil,
       },
       server_opts_overrides = {},
-    }
-  end,
 }

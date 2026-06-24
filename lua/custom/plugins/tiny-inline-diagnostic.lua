@@ -1,9 +1,8 @@
-return {
-  'rachartier/tiny-inline-diagnostic.nvim',
-  event = 'VeryLazy', -- `LspAttach`,`VeryLazy`
-  priority = 1000, -- needs to be loaded in first
-  config = function()
-    require('tiny-inline-diagnostic').setup {
+local pack = require 'custom.pack'
+
+pack.add 'rachartier/tiny-inline-diagnostic.nvim'
+
+require('tiny-inline-diagnostic').setup {
       -- Style preset for diagnostic messages
       -- Available options:
       -- "modern", "classic", "minimal", "powerline",
@@ -133,6 +132,4 @@ return {
       },
       disabled_ft = {}, -- List of filetypes to disable the plugin
     }
-    vim.diagnostic.config { virtual_text = false } -- Only if needed in your configuration, if you already have native LSP diagnostics
-  end,
-}
+vim.diagnostic.config { virtual_text = false } -- Only if needed in your configuration, if you already have native LSP diagnostics

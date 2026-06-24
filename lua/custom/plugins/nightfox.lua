@@ -1,9 +1,8 @@
-return {
-  'EdenEast/nightfox.nvim',
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require('nightfox').setup {
+local pack = require 'custom.pack'
+
+pack.add 'EdenEast/nightfox.nvim'
+
+require('nightfox').setup {
       options = {
         -- Compiled file's destination location
         compile_path = vim.fn.stdpath 'cache' .. '/nightfox',
@@ -47,7 +46,5 @@ return {
       groups = {},
     }
 
-    -- setup must be called before loading
-    -- vim.cmd 'colorscheme dayfox'
-  end,
-}
+-- setup must be called before loading
+-- vim.cmd 'colorscheme dayfox'

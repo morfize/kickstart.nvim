@@ -1,10 +1,8 @@
-return {
-  'windwp/nvim-autopairs',
-  event = 'InsertEnter',
-  config = true,
-  -- use opts = {} for passing setup options
-  -- this is equivalent to setup({}) function
-  opts = {
+local pack = require 'custom.pack'
+
+pack.add 'windwp/nvim-autopairs'
+
+require('nvim-autopairs').setup {
     enabled = function(bufnr)
       return true
     end, -- control if auto-pairs should be enabled when attaching to a buffer
@@ -24,5 +22,4 @@ return {
     map_bs = true, -- map the <BS> key
     map_c_h = false, -- Map the <C-h> key to delete a pair
     map_c_w = false, -- map <c-w> to delete a pair if possible
-  },
 }

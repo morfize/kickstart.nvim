@@ -1,10 +1,8 @@
-return {
-  'projekt0n/github-nvim-theme',
-  name = 'github-theme',
-  lazy = false, -- make sure we load this during startup if it is your main colorscheme
-  priority = 1000, -- make sure to load this before all the other start plugins
-  config = function()
-    require('github-theme').setup {
+local pack = require 'custom.pack'
+
+pack.add('projekt0n/github-nvim-theme', { name = 'github-theme' })
+
+require('github-theme').setup {
       options = {
         -- Compiled file's destination location
         compile_path = vim.fn.stdpath 'cache' .. '/github-theme',
@@ -48,7 +46,5 @@ return {
       groups = {},
     }
 
-    -- -- setup must be called before loading
-    -- vim.cmd 'colorscheme github_dark'
-  end,
-}
+-- -- setup must be called before loading
+-- vim.cmd 'colorscheme github_dark'

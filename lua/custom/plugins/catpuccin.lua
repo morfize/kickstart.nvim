@@ -1,9 +1,8 @@
-return {
-  'catppuccin/nvim',
-  name = 'catppuccin',
-  priority = 1000,
-  config = function()
-    require('catppuccin').setup {
+local pack = require 'custom.pack'
+
+pack.add('catppuccin/nvim', { name = 'catppuccin' })
+
+require('catppuccin').setup {
       flavour = 'auto', -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = 'latte',
@@ -52,7 +51,5 @@ return {
       },
     }
 
-    -- setup must be called before loading
-    -- vim.cmd.colorscheme 'catppuccin'
-  end,
-}
+-- setup must be called before loading
+-- vim.cmd.colorscheme 'catppuccin'

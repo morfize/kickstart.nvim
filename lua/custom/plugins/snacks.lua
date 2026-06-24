@@ -93,18 +93,22 @@ local function ensure_dashboard_desc_keymaps()
   })
 end
 
-return {
-  'folke/snacks.nvim',
-  priority = 1000,
-  lazy = false,
-  ---@type snacks.Config
-  opts = {
+local pack = require 'custom.pack'
+
+pack.add 'folke/snacks.nvim'
+
+---@type snacks.Config
+require('snacks').setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
     bigfile = { enabled = true },
     dashboard = {
       enabled = true,
+      sections = {
+        { section = 'header' },
+        { section = 'keys', gap = 1, padding = 1 },
+      },
       config = function()
         ensure_dashboard_desc_keymaps()
       end,
@@ -202,5 +206,4 @@ return {
         },
       },
     },
-  },
 }

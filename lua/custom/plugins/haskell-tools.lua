@@ -1,6 +1,6 @@
-return {
-  'mrcjkb/haskell-tools.nvim',
-  version = '^6', -- Recommended
-  lazy = false, -- This plugin is already lazy
-  enabled = false,
-}
+local enabled = false
+if not enabled then return end
+
+local pack = require 'custom.pack'
+
+pack.add('mrcjkb/haskell-tools.nvim', { version = '^6' })

@@ -1,8 +1,4 @@
-return {
-  'kaarmu/typst.vim',
-  ft = 'typst',
-  lazy = false,
-  config = function()
-    vim.g.typst_pdf_viewer = 'skim'
-  end,
-}
+local pack = require 'custom.pack'
+
+vim.g.typst_pdf_viewer = 'skim'
+pack.add('kaarmu/typst.vim', { load = true })

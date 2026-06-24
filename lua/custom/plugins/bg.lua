@@ -1,5 +1,3 @@
-return {
-  'typicode/bg.nvim',
-  lazy = false,
-  priority = 1000,
-}
+local pack = require 'custom.pack'
+
+pack.add('typicode/bg.nvim', { load = true })

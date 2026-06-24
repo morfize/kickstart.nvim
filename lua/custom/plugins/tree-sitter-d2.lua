@@ -1,9 +1,6 @@
-return {
-  'ravsii/tree-sitter-d2',
-  event = 'VeryLazy',
-  enable = true,
-  ft = { 'd2', 'md' },
-  version = '*',
-  dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  build = 'make nvim-install',
+local pack = require 'custom.pack'
+
+pack.add_many {
+  'nvim-treesitter/nvim-treesitter',
+  { 'ravsii/tree-sitter-d2', version = '*' },
 }
