@@ -688,31 +688,31 @@ require('lazy').setup({
             },
           },
         },
-        hls = {
-          cmd = { 'haskell-language-server-wrapper', '--lsp' },
-          filetypes = { 'haskell', 'lhaskell', 'cabal' },
-          capabilities = {},
-          root_dir = function(bufnr, on_dir)
-            local fname = vim.api.nvim_buf_get_name(bufnr)
-            local util = require 'neovim.util'
-            on_dir(util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml')(fname))
-          end,
-          settings = {
-            haskell = {
-              cabalFormattingProvider = 'cabalfmt',
-              formattingProvider = 'ormolu',
-            },
-          },
-        },
-        tinymist = {
-          cmd = { 'tinymist' },
-          filetypes = { 'typ' },
-          settings = {
-            formatterMode = 'typStyle',
-            exportPdf = 'onType',
-            semanticTokens = 'disable',
-          },
-        },
+        -- hls = {
+        --   cmd = { 'haskell-language-server-wrapper', '--lsp' },
+        --   filetypes = { 'haskell', 'lhaskell', 'cabal' },
+        --   capabilities = {},
+        --   root_dir = function(bufnr, on_dir)
+        --     local fname = vim.api.nvim_buf_get_name(bufnr)
+        --     local util = require 'neovim.util'
+        --     on_dir(util.root_pattern('hie.yaml', 'stack.yaml', 'cabal.project', '*.cabal', 'package.yaml')(fname))
+        --   end,
+        --   settings = {
+        --     haskell = {
+        --       cabalFormattingProvider = 'cabalfmt',
+        --       formattingProvider = 'ormolu',
+        --     },
+        --   },
+        -- },
+        -- tinymist = {
+        --   cmd = { 'tinymist' },
+        --   filetypes = { 'typ' },
+        --   settings = {
+        --     formatterMode = 'typStyle',
+        --     exportPdf = 'onType',
+        --     semanticTokens = 'disable',
+        --   },
+        -- },
         -- sqls = {},
         -- vale_ls = {
         --   cmd = { 'vale', 'lsp' },
